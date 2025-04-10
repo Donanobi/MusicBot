@@ -45,10 +45,9 @@
             <version>5.3.1</version>
         </dependency>
         <dependency>
-            <groupId>com.jagrosh</groupId>
-            <artifactId>jda-utilities</artifactId>
+            <groupId>com.github.kokofixcomputers</groupId>
+            <artifactId>jda-utilities-fork</artifactId>
             <version>3.1.0</version>
-	    <scope>compile</scope>
             <type>pom</type>
         </dependency>
 
