@@ -40,14 +40,14 @@
     <dependencies>
         <!-- Discord Dependencies -->
         <dependency>
-            <groupId>net.dv8tion</groupId>
+            <groupId>com.github.dv8fromtheworld</groupId>
             <artifactId>JDA</artifactId>
-            <version>4.4.1_353</version>
+            <version>5.3.2</version>
         </dependency>
         <dependency>
-            <groupId>com.jagrosh</groupId>
-            <artifactId>jda-utilities</artifactId>
-            <version>3.0.5</version>
+            <groupId>com.github.kokofixcomputers</groupId>
+            <artifactId>jda-utilities-fork</artifactId>
+            <version>3.1.0</version>
             <type>pom</type>
         </dependency>
 
@@ -55,12 +55,12 @@
         <dependency>
             <groupId>dev.arbjerg</groupId>
             <artifactId>lavaplayer</artifactId>
-            <version>2.2.2</version>
+            <version>2.2.3</version>
         </dependency>
         <dependency>
             <groupId>dev.lavalink.youtube</groupId>
             <artifactId>common</artifactId>
-            <version>1.8.2</version>
+            <version>1.12.0</version>
         </dependency>
 	<dependency>
 	    <groupId>com.github.jagrosh</groupId>
