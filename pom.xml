@@ -35,19 +35,25 @@
             <name>Lavalink Repository</name>
             <url>https://maven.lavalink.dev/releases</url>
         </repository>
+        <repository>
+            <id>chew</id>
+            <name>m2-chew</name>
+            <url>https://m2.chew.pro/releases</url>
+        </repository>
     </repositories>
 
     <dependencies>
         <!-- Discord Dependencies -->
         <dependency>
-            <groupId>com.github.dv8fromtheworld</groupId>
+            <groupId>net.dv8tion</groupId>
             <artifactId>JDA</artifactId>
             <version>5.3.2</version>
         </dependency>
         <dependency>
-            <groupId>com.github.kokofixcomputers</groupId>
-            <artifactId>jda-utilities-fork</artifactId>
-            <version>3.1.0</version>
+            <groupId>pw.chew</groupId>
+            <artifactId>jda-chewtils</artifactId>
+            <version>2.1</version>
+            <scope>compile</scope>
             <type>pom</type>
         </dependency>
 
