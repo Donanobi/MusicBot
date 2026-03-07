@@ -122,17 +122,39 @@ public class JMusicBot
         // attempt to log in and start
        try
        {
-           JDA jda = JDABuilder.create(config.getToken(), Arrays.asList(INTENTS))
-                   .enableIntents(GatewayIntent.MESSAGE_CONTENT)
-                   .enableCache(CacheFlag.MEMBER_OVERRIDES, CacheFlag.VOICE_STATE)
-                   .disableCache(CacheFlag.ACTIVITY, CacheFlag.CLIENT_STATUS, CacheFlag.EMOJI, CacheFlag.ONLINE_STATUS)
-                   .setActivity(config.isGameNone() ? null : Activity.playing("loading..."))
-                   .setStatus(config.getStatus()==OnlineStatus.INVISIBLE || config.getStatus()==OnlineStatus.OFFLINE
-                           ? OnlineStatus.INVISIBLE : OnlineStatus.DO_NOT_DISTURB)
-                   .addEventListeners(client, waiter, new Listener(bot))
-                   .setBulkDeleteSplittingEnabled(true)
-                   .build();
-           bot.setJDA(jda);
+	   /**OLD CODE:
+		   JDA jda = JDABuilder.create(config.getToken(), Arrays.asList(INTENTS))
+					.enableIntents(GatewayIntent.MESSAGE_CONTENT)
+					.enableCache(CacheFlag.MEMBER_OVERRIDES, CacheFlag.VOICE_STATE)
+					.disableCache(CacheFlag.ACTIVITY, CacheFlag.CLIENT_STATUS, CacheFlag.EMOJI, CacheFlag.ONLINE_STATUS)
+					.setActivity(config.isGameNone() ? null : Activity.playing("loading..."))
+					.setStatus(config.getStatus()==OnlineStatus.INVISIBLE || config.getStatus()==OnlineStatus.OFFLINE
+							? OnlineStatus.INVISIBLE : OnlineStatus.DO_NOT_DISTURB)
+					.addEventListeners(client, waiter, new Listener(bot))
+					.setBulkDeleteSplittingEnabled(true)
+					.build();
+			bot.setJDA(jda);
+		*/
+           JDABuilder builder = JDABuilder.create(config.getToken(), Arrays.asList(INTENTS))
+					.enableIntents(GatewayIntent.MESSAGE_CONTENT)
+					.enableCache(CacheFlag.MEMBER_OVERRIDES, CacheFlag.VOICE_STATE)
+					.disableCache(CacheFlag.ACTIVITY, CacheFlag.CLIENT_STATUS, CacheFlag.EMOJI, CacheFlag.ONLINE_STATUS)
+					.setActivity(config.isGameNone() ? null : Activity.playing("loading..."))
+					.setStatus(config.getStatus()==OnlineStatus.INVISIBLE || config.getStatus()==OnlineStatus.OFFLINE
+							? OnlineStatus.INVISIBLE : OnlineStatus.DO_NOT_DISTURB)
+					.addEventListeners(client, waiter, new Listener(bot))
+					.setBulkDeleteSplittingEnabled(true);
+
+			// ⭐ Add JDAVE audio module configuration here
+			builder.setAudioModuleConfig(
+					new AudioModuleConfig()
+							.withDaveSessionFactory(new JDaveSessionFactory())
+							.withAudioSendFactory(new NativeAudioSendFactory())
+			);
+
+			// Now build the JDA instance
+			JDA jda = builder.build();
+			bot.setJDA(jda);
 
            // Additional checks
            String unsupportedReason = OtherUtil.getUnsupportedBotReason(jda);
