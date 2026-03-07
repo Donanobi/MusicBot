@@ -40,6 +40,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ch.qos.logback.classic.Level;
 import net.dv8tion.jda.api.Permission;
+/**new imports for JDAVE*/
+import dev.minn.jdave.JDaveSessionFactory;
+import net.dv8tion.jda.api.audio.AudioModuleConfig;
+import net.dv8tion.jda.api.audio.factory.NativeAudioSendFactory;
+
 
 /**
  *
