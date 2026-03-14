@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 package com.jagrosh.jmusicbot;
+import club.minnced.discord.jdave.interop.JDaveSessionFactory;
+import net.dv8tion.jda.api.audio.AudioModuleConfig;
 
 import com.jagrosh.jdautilities.command.CommandClient;
 import com.jagrosh.jdautilities.command.CommandClientBuilder;
@@ -126,6 +128,13 @@ public class JMusicBot
                            ? OnlineStatus.INVISIBLE : OnlineStatus.DO_NOT_DISTURB)
                    .addEventListeners(client, waiter, new Listener(bot))
                    .setBulkDeleteSplittingEnabled(true)
+				   
+				    // 🔥 JDAVE REQUIRED FOR ENCRYPTED VOICE IN JDA 6.3.x
+					.setAudioModuleConfig(
+						new AudioModuleConfig()
+							.withDaveSessionFactory(new JDaveSessionFactory())
+					)
+
                    .build();
            bot.setJDA(jda);
 
@@ -182,7 +191,7 @@ public class JMusicBot
                         new PingCommand(),
                         new SettingsCmd(bot),
                         
-                        new LyricsCmd(bot),
+                        // new LyricsCmd(bot),
                         new NowplayingCmd(bot),
                         new PlayCmd(bot),
                         new PlaylistsCmd(bot),

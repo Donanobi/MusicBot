@@ -15,7 +15,6 @@
  */
 package com.jagrosh.jmusicbot.audio;
 
-import com.dunctebot.sourcemanagers.DuncteBotSources;
 import com.jagrosh.jmusicbot.Bot;
 import com.jagrosh.jmusicbot.utils.OtherUtil;
 import com.sedmelluq.discord.lavaplayer.container.MediaContainerRegistry;
@@ -72,7 +71,6 @@ public class PlayerManager extends DefaultAudioPlayerManager
 
         AudioSourceManagers.registerLocalSource(this);
 
-        DuncteBotSources.registerAll(this, "en-US");
     }
 
      private YoutubeAudioSourceManager setupYoutubeAudioSourceManager()
